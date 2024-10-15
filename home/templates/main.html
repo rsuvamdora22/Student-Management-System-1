@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    {% include 'nav.html' %}
+    
+    <div class="container">
+        <fieldset>
+            <legend>Registration Form</legend>
+            <form action="" method="POST" autocomplete="on" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td><label for="passphoto">Passport Photo:</label></td>
+                        <td><input type="file" name="passphoto" id="passphoto" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="name">Name:</label></td>
+                        <td><input type="text" name="name" id="name" autofocus required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mobile_no">Mobile no:</label></td>
+                        <td><input type="text" name="mobile_no" id="mobile_no" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Email_id">Email:</label></td>
+                        <td><input type="email" name="Email_id" id="Email_id" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="age">Age:</label></td>
+                        <td><input type="number" name="age" id="age" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Date_of_birth">Date of Birth:</label></td>
+                        <td><input type="date" name="Date_of_birth" id="Date_of_birth" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Address">Address:</label></td>
+                        <td><input type="text" name="Address" id="Address" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Course">Course:</label></td>
+                        <td><input type="text" name="Course" id="Course" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Year_of_passing">Year of Passing:</label></td>
+                        <td><input type="number" name="Year_of_passing" id="Year_of_passing" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="gender">Gender:</label></td>
+                        <td>
+                            <select name="gender" id="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><label for="percentage">Percentage:</label></td>
+                        <td><input type="number" name="percentage" id="percentage" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="reset" value="Reset"></td>
+                        <td><button type="submit">Submit</button></td>
+                    </tr>
+                </table>
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>

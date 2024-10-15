@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="{% static 'individual.css' %}">
+</head>
+<body>
+    {% include 'nav.html' %}
+    
+    <h1>Student Details</h1>
+    <table>
+        <tr>
+            <th>Passport Size Photo</th>
+            <td>
+                {% if student.passphoto %}
+                    <img src="{{ student.passphoto.url }}" alt="Passport Photo" width="150" height="150">
+                {% else %}
+                    No photo uploaded.
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ student.name }}</td>
+        </tr>
+        <tr>
+            <th>Mobile No</th>
+            <td>{{ student.mobile_no }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ student.Email_id }}</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>{{ student.age }}</td>
+        </tr>
+        <tr>
+            <th>Date of Birth</th>
+            <td>{{ student.Date_of_birth }}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{ student.Address }}</td>
+        </tr>
+        <tr>
+            <th>Course</th>
+            <td>{{ student.Course }}</td>
+        </tr>
+        <tr>
+            <th>Year of Passing</th>
+            <td>{{ student.Year_of_passing }}</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>{{ student.gender }}</td>
+        </tr>
+        <tr>
+            <th>Percentage</th>
+            <td>{{ student.Percentage }}</td>
+        </tr>
+    </table>
+    <div class="button-container">
+        <a href="{% url 'edit_student' student.pk %}" ><button class="edit-button">Edit</button></a>
+        <a href="{% url 'remove_student' student.pk %}" ><button class="remove-button">Remove Student</button></a>
+        <a href="{% url 'data' %}" ><button class="back-button">Back to Student List</button></a>
+    </div>
+</body>
+</html>

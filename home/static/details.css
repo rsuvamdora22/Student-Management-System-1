@@ -1,0 +1,103 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #6e8efb; /* Using primary color from the navbar */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #6e8efb;
+    color: white;
+    font-size: 18px;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Image Styling */
+img {
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+/* Student Links */
+.student-link {
+    color: #a777e3; /* Link matches the secondary color from the navbar */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.student-link:hover {
+    color: #ffcc00; /* Navbar hover color */
+    transform: scale(1.1);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Button Styling */
+.btn-add {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #ffcc00; /* Matching the theme with a vibrant yellow */
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    text-align: center;
+    /* font-weight: bold; */
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    display: block;
+    width: fit-content;
+}
+
+.btn-add:hover {
+    background-color: #ffc107; /* Slight color change on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}

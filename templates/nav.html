@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Internal CSS for Navbar styling and animations */
+        .navbar {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar:hover {
+            background: linear-gradient(135deg, #a777e3, #6e8efb);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-item {
+            list-style: none;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .navbar-brand:hover {
+            color: #ffcc00;
+            transform: rotate(5deg);
+        }
+
+        .nav-link {
+            color: #fff;
+            font-size: 18px;
+            padding: 10px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-link.active {
+            color: #ffcc00;
+        }
+
+        .nav-link:hover {
+            color: #ffcc00;
+            transform: translateY(-3px) scale(1.1);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .nav-link::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: #ffcc00;
+            transition: width 0.3s;
+            width: 0;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+        }
+
+        .navbar-toggler:hover {
+            background-color: #ffcc00;
+        }
+
+        /* Search button and input styles */
+        form input[type="search"] {
+            border: 2px solid transparent;
+            border-radius: 30px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        form input[type="search"]:focus {
+            border-color: #ffcc00;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+
+        form .btn {
+            background-color: #ffcc00;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 8px 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        form .btn:hover {
+            background-color: #ffbb00;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'student' %}">Student-Details</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'student' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'data' %}">Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'history' %}">History</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" method="GET" action="{% url 'search' %}">
+                  <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>              
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

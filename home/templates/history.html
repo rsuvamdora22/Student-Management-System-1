@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Removed Students History</title>
+    <link rel="stylesheet" href="{% static 'history.css' %}">
+</head>
+<body>
+    {% include 'nav.html' %}
+
+    <h1>Removed Students History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Passport Photo</th>
+                <th>Name</th>
+                <th>Mobile No</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Date of Birth</th>
+                <th>Address</th>
+                <th>Course</th>
+                <th>Year of Passing</th>
+                <th>Gender</th>
+                <th>Percentage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in history %}
+            <tr>
+                <td>
+                    {% if student.passphoto %}
+                        <img src="{{ student.passphoto.url }}" alt="Passport Photo" width="50" height="50">
+                    {% else %}
+                        No photo available.
+                    {% endif %}
+                </td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.mobile_no }}</td>
+                <td>{{ student.Email_id }}</td>
+                <td>{{ student.age }}</td>
+                <td>{{ student.Date_of_birth }}</td>
+                <td>{{ student.Address }}</td>
+                <td>{{ student.Course }}</td>
+                <td>{{ student.Year_of_passing }}</td>
+                <td>{{ student.gender }}</td>
+                <td>{{ student.Percentage }}</td>
+                <td>
+                    <a href="{% url 'delete_student' student.pk %}" class="btn btn-delete">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="11">No removed students found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'student' %}" class="btn btn-back">Back to Student List</a>
+</body>
+</html>

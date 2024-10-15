@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="{% static 'details.css' %}">
+</head>
+<body>
+    {% include 'nav.html' %}
+
+    <h1>Student Details</h1>
+    <table>
+        <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Mobile No.</th>
+        </tr>
+        {% for student in data %}
+        <tr>
+            <td>
+                {% if student.passphoto %}
+                    <img src="{{ student.passphoto.url }}" alt="Passport Photo" width="50" height="50">
+                {% else %}
+                    No photo uploaded.
+                {% endif %}
+            </td>
+            <td><a href="{% url 'detail' student.pk %}" class="student-link">{{ student.name }}</a></td>
+            <td>{{ student.mobile_no }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td>No students found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{% url 'student' %}" class="btn-add">Add Another Student</a>
+</body>
+</html>

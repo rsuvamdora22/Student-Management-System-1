@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="{% static 'details.css' %}">
+</head>
+<style>
+    /* Add these to your existing CSS file */
+form.edit-form {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form.edit-form label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #0d47a1;
+}
+
+form.edit-form input[type="text"],
+form.edit-form input[type="email"],
+form.edit-form input[type="number"],
+form.edit-form input[type="date"],
+form.edit-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #e3f2fd;
+}
+
+form.edit-form input[type="file"] {
+    padding: 5px;
+}
+
+form.edit-form .btn {
+    width: 100%;
+    background-color: #0d47a1;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form.edit-form .btn:hover {
+    background: linear-gradient(135deg, #0d47a1, #2196f3);
+}
+
+.btn-remove {
+    background: linear-gradient(135deg, #ff5f5f, #e52d2d); /* Red gradient for cancel */
+}
+
+.btn-remove:hover {
+    background: linear-gradient(135deg, #e52d2d, #ff5f5f); /* Hover effect for cancel */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+ 
+</style>
+<body>
+    <h1>Edit Student Details</h1>
+
+    <form method="POST" enctype="multipart/form-data" class="edit-form">
+        {% csrf_token %}
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ student.name }}"><br>
+
+        <label for="mobile_no">Mobile No:</label>
+        <input type="text" id="mobile_no" name="mobile_no" value="{{ student.mobile_no }}" ><br>
+
+        <label for="Email_id">Email ID:</label>
+        <input type="email" id="Email_id" name="Email_id" value="{{ student.Email_id }}" ><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="{{ student.age }}" ><br>
+
+
+        <label for="Address">Address:</label>
+        <input type="text" id="Address" name="Address" value="{{ student.Address }}" ><br>
+
+        <label for="Course">Course:</label>
+        <input type="text" id="Course" name="Course" value="{{ student.Course }}"><br>
+
+        <label for="Year_of_passing">Year of Passing:</label>
+        <input type="number" id="Year_of_passing" name="Year_of_passing" value="{{ student.Year_of_passing }}"><br>
+            
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender" >
+            <option value="" disabled selected>{{student.gender}}</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br>
+
+        <label for="percentage">Percentage:</label>
+        <input type="number" id="percentage" name="percentage" value="{{ student.Percentage }}"><br>
+
+        <label for="passphoto">Pass Photo:</label>
+        <input type="file" id="passphoto" name="passphoto"><br>
+
+        <button type="submit" class="btn">Update</button>
+    </form>
+
+    <a href="{% url 'detail' student.pk %}" class="btn btn-remove">Cancel</a>
+</body>
+</html>
