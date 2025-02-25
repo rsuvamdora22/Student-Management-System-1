@@ -1,7 +1,46 @@
 # Student-Management-System
 # Supporter:-
 <a href="https://github.com/code-with-raiden"><img src="https://github.com/code-with-raiden.png?size=96" alt="Raiden" width="96px" height="96px" /></a>
-# UI VIEW
+
+# Project Workflow:-
+- This section outlines the steps to set up and run the Django project.
+<h3>Prerequisites:-</h3>
+<ul>
+  <li>Before you begin, ensure you have the following installed:</li>
+</ul>
+<ol type='i'>
+<li>Python 3.10</li>
+<li>pip (Python package manager)</li>
+<li>Virtualenv (optional but recommended)</li>
+</ol>
+<h2>Setting Up the Project:-</h2>
+<ol>
+  <li>Create a Virtual Environment (Optional):</li>
+  <pre>
+    <code>python -m venv venv</code>
+    <code>source venv/bin/activate</code>   # On Windows use `venv\Scripts\activate`
+  </pre>
+  <li>Install the Dependencies:</li>
+  <pre>
+    <code>pip install -r requirements.txt</code>
+  </pre>
+  <li>Set Up the Database:</li>
+  <pre>
+    <code>python manage.py makemigrations</code>
+    <code>python manage.py migrate</code>
+  </pre>
+  <li>Create a Superuser (Optional):</li>
+  <pre>
+    <code>python manage.py createsuperuser</code>
+  </pre>
+  <li>Run the Development Server:</li>
+  <pre>
+    <code>python manage.py runserver</code>
+  </pre>
+    Visit http://127.0.0.1:8000/ in your browser to see the project running.
+</ol>
+
+# UI VIEW:-
 # Registration Form-
 ![Screenshot 2024-10-15 174732](https://github.com/user-attachments/assets/d463bc8e-d767-4ed1-af36-4adf8cd6c148)
 ![Screenshot 2024-10-15 174810](https://github.com/user-attachments/assets/c86f822b-8a31-485d-9c25-4f67a6dadbe0)
